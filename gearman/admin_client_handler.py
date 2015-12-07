@@ -93,7 +93,7 @@ class GearmanAdminClientCommandHandler(GearmanCommandHandler):
             raise ValueError('Could not handle command: %r - %r' % (cmd_type, raw_text))
 
         # This must match the parameter names as defined in the command handler
-        completed_work = cmd_callback(raw_text)
+        completed_work = cmd_callback(raw_text.decode('ascii'))
         return completed_work
 
     def recv_server_status(self, raw_text):
